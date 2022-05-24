@@ -10,11 +10,9 @@ function App() {
 
   const onChangeName = (event) => {
     const value = event.target.value;
-    if (/^[a-z]{1,25}$/.test(value)) {
-      setUser({...user, name: value})
-    } else {
-      alert('your data is not correct')
-    }
+    const key = event.target.name;
+
+    setUser({...user, [key]: value})
     console.log(value)
   }
 
@@ -27,7 +25,9 @@ function App() {
       <p>age: {age}</p>
       <p>email: {email}</p>
       <p>lastName: {lastName}</p>
-      <input value={name} onChange={onChangeName} />
+      <input name='name' value={name} onChange={onChangeName} />
+      <input name='email' type='email' value={email} onChange={onChangeName} />
+      <input name='age' type='number' value={age} onChange={onChangeName} />
     </div>
   );
 }
