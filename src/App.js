@@ -1,5 +1,8 @@
 import Header from "./Header";
-import {useState} from "react";
+import { useState } from "react";
+import fields from './fields.json';
+
+const List = () => fields.map((field) => <input key={field.id} type={field.type} name={field.name} placeholder={field.placeholder} />)
 
 function App() {
   const [user, setUser] = useState({
@@ -25,9 +28,7 @@ function App() {
       <p>age: {age}</p>
       <p>email: {email}</p>
       <p>lastName: {lastName}</p>
-      <input name='name' value={name} onChange={onChangeName} />
-      <input name='email' type='email' value={email} onChange={onChangeName} />
-      <input name='age' type='number' value={age} onChange={onChangeName} />
+      <List />
     </div>
   );
 }

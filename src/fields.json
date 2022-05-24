@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name":  "text", "placeholder": "Enter your name", "type": "text" },
+  { "id": 2, "name":  "email", "placeholder": "Enter your email", "type": "email" },
+  { "id": 3, "name":  "age", "placeholder": "Enter your age", "type": "number" },
+  { "id": 4, "name":  "Last Name", "placeholder": "Enter your last name", "type": "text" }
+]
