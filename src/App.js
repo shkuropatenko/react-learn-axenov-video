@@ -1,5 +1,5 @@
 import Header from "./Header";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 const users = [
   {id: 1, name: 'Petya'},
@@ -16,6 +16,12 @@ const Form = ({isShow, clickName}) => {
 
 function App() {
   const [isShow, setIsShow] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsShow(!isShow)
+    }, 5000)
+  }, [])
 
   const changeIsShow = () => {
     setIsShow(!isShow)
