@@ -8,31 +8,26 @@ function App() {
     email: 'mail@gmail.com',
   });
 
-  const changeUserName = (el) => {
-    el.preventDefault();
-    const username = el.target.username.value;
-    const lastName = el.target.lastName.value;
-    setUser({ ...user, name: username, lastName: lastName})
+  const onChangeName = (event) => {
+    const value = event.target.value;
+    if (/^[a-z]{1,25}$/.test(value)) {
+      setUser({...user, name: value})
+    } else {
+      alert('your data is not correct')
+    }
+    console.log(value)
   }
 
-  const clickHendler = () => {
-    alert('GAGAGHAGGAGAG')
-  }
-
-  console.log('RENDER PAGE')
+  console.log('RENDER APP COMPONENT')
+  const {name, age, email, lastName} = user;
 
   return (
     <div className="App">
-      <p>name: {user.name}</p>
-      <p>age: {user.age}</p>
-      <p>email: {user.email}</p>
-      <p>lastName: {user.lastName}</p>
-      <button onClick={clickHendler}>GAGAGGA</button>
-      <form onSubmit={changeUserName}>
-        <input name='username' placeholder="Enter new user username" />
-        <input name='lastName' placeholder="Enter new user lastName " />
-        <button>Change</button>
-      </form>
+      <p>name: {name}</p>
+      <p>age: {age}</p>
+      <p>email: {email}</p>
+      <p>lastName: {lastName}</p>
+      <input value={name} onChange={onChangeName} />
     </div>
   );
 }
